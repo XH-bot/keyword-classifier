@@ -54,7 +54,6 @@ if uploaded_file:
             output = io.BytesIO()
             with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
                 df.to_excel(writer, index=False, sheet_name='Classification')
-                writer.save()
             processed_data = output.getvalue()
             return processed_data
 
@@ -71,3 +70,4 @@ if uploaded_file:
         st.error(f"Error reading the Excel file: {e}")
 else:
     st.info("Please upload an Excel file containing your keywords.")
+
